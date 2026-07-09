@@ -3,6 +3,7 @@ import "./App.css";
 
 import HomePage from "./pages/HomePage.jsx";
 import ViewProductPage from "./pages/ViewProductPage.jsx";
+import { UserContext } from "./contexts/UserContext.jsx";  // 👈 import
 
 function App() {
   const userData = {
@@ -12,14 +13,16 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Router>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/product/view/:id" element={<ViewProductPage />} />
-        </Routes>
-      </Router>
-    </div>
+    <UserContext.Provider value={userData}>   {/* 👈 ห่อด้วย Provider */}
+      <div className="App">
+        <Router>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/product/view/:id" element={<ViewProductPage />} />
+          </Routes>
+        </Router>
+      </div>
+    </UserContext.Provider>
   );
 }
 
