@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { UserProvider } from "./contexts/UserContext.jsx";
 import "./App.css";
 
 import HomePage from "./pages/HomePage.jsx";
@@ -13,12 +14,14 @@ function App() {
 
   return (
     <div className="App">
+      <UserProvider value={userData}>
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/product/view/:id" element={<ViewProductPage />} />
         </Routes>
       </Router>
+      </UserProvider>
     </div>
   );
 }
