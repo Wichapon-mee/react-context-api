@@ -1,9 +1,11 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { useUser } from "../contexts/UserContext.jsx";
+import { UserDataContext } from "../contexts/UserDataContext.jsx";
 
 function ViewProductPage() {
   const navigate = useNavigate();
-  const { level } = useUser();
+  const { level } = useContext(UserDataContext);
+
   return (
     <div>
       <h1>View Product Page</h1>

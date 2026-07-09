@@ -1,8 +1,9 @@
-import { useUser } from "../contexts/UserContext.jsx";
-
+import { useContext } from "react";
+import { UserDataContext } from "../contexts/UserDataContext.jsx";
 
 function AppHeader() {
-  const { username } = useUser();
+  const { username } = useContext(UserDataContext);
+
   return (
     <div className="app-header-container">
       <h1 className="app-title">Products</h1>
