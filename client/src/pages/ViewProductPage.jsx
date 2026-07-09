@@ -4,7 +4,7 @@ import { UserContext } from "../contexts/UserContext";
 
 function ViewProductPage() {
   const navigate = useNavigate();
-  const userData = useContext(UserContext);
+  const userData = useContext(UserContext); // ดึงข้อมูลจาก Context
 
   return (
     <div>
